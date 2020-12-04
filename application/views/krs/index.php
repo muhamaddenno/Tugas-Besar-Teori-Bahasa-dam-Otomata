@@ -20,6 +20,45 @@
 </head>
 
 <body>
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+  <a class="navbar-brand" href="#">SIAKAD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+				<li>
+					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<span class="mr-2 d-none d-lg-inline text-gray-600 small"> </span>
+						<i class="fas fa-fw fa-2x fa-user-circle"></i>
+					</a>
+					<!-- Dropdown - User Information -->
+					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						aria-labelledby="userDropdown">
+						<a class="dropdown-item" href="#">
+							<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+							Login
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="<?= base_url()?>mahasiswa/registration">
+							<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+							Register
+						</a>
+					</div>
+				</li>
+			</ul>
+  </div>
+</nav>
+
     <br><br>
     <div class="container">
         <form class="form-inline" action="post">
@@ -133,8 +172,46 @@
             </tbody>
         </table>
 
-        <button type="submit" class="btn btn-primary">Tambah</button>
+        <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
+          Tambah
+        </button>
     </div>
 </body>
 
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formModalLabel">Tambah Matakuliah</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?= form_open('mahasiswa/tambahmk')?> 
+          <div class="form-group">
+            <label for="matkul">Mata Kuliah</label>
+            <select class="form-control" id="matkul" name="matkul">
+              <option value="Algoritma Pemrograman">Algoritma Pemrograman</option>
+              <option value="Struktur Data">Struktur Data</option>
+              <option value="Pemrograman Berorientasi Objek">Pemrograman Berorientasi Objek</option>
+              <option value="Basis Data">Basis Data</option>
+              <option value="Basis Data II">Basis Data II</option>
+              <option value="Kalkulus">Kalkulus</option>
+              <option value="Kalkulus II">Kalkulus II</option>
+              <option value="Kalkulus Lanjut">Kalkulus Lanjut</option>
+            </select>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 </html>
