@@ -24,8 +24,8 @@
     <br><br>
     <div class="container">
         <table class="table">
-            <thead>
-                <tr class="bg-dark">
+            <thead class="thead-dark">
+                <tr>
                     <th scope="col">#</th>
                     <th scope="col">KODE</th>
                     <th scope="col">NAMA MATAKULIAH</th>
