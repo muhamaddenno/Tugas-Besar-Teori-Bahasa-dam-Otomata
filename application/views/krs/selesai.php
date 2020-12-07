@@ -64,9 +64,6 @@
                                   </tr>
                                 <?php }  ?>
                               </tbody>
-                          </table>
-                          <a href="<?=site_url('masuk/selesai')?>" class="btn btn-warning">Selesai</a>
-                          <a href="<?=site_url('masuk/ambil')?>" class="btn btn-info">Tambah Matakuliah</a><br><br>
                           <?= $this->session->flashdata('message'); ?>
                       </div>
                     </div>

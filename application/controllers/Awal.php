@@ -19,18 +19,23 @@ class Awal extends CI_Controller {
 		$password = $this->input->post('password');
 		$cek = $this->db->get_where('mahasiswa',array('nim'=>$nim));
 		if($cek->num_rows() > 0){
-			
 			$data_user = $cek->row();
-			$this->session->set_userdata('id',$data_user->id);
-            $this->session->set_userdata('nim',$nim);
-			$this->session->set_userdata('nama',$data_user->nama);
-			$this->session->set_userdata('is_login',TRUE);
+			if (password_verify($password, $data_user->password)) {
+                $data_user = $cek->row();
+				$this->session->set_userdata('id',$data_user->id);
+	            $this->session->set_userdata('nim',$nim);
+				$this->session->set_userdata('nama',$data_user->nama);
+				$this->session->set_userdata('is_login',TRUE);
  
-			redirect(base_url("masuk"));
-			
+				redirect(base_url("masuk"));
+            } else {
+				$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Username dan Password salah!</div>');
+				redirect('');
+            }
  
 		}else{
-			echo "Username dan password salah !";
+			$this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Username dan Password salah!</div>');
+			redirect('');
 		}
 		
 	}

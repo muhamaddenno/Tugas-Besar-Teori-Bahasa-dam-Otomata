@@ -33,6 +33,7 @@
                   <input type="submit" name="" value="Masuk" class="btn btn-secondary btn-block masuk">
                 </div>
               </form>
+              <?= $this->session->flashdata('message'); ?>
             </div>
           </div>
         </div>
